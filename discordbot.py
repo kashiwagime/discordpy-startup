@@ -2,9 +2,9 @@ from discord.ext import commands
 import os
 import traceback
 
-bot = commands.Bot(command_prefix='/')
-token = os.environ['DISCORD_BOT_TOKEN']
+import discord
 
+client = discord.Client()
 
 @client.event
 async def on_ready():
@@ -23,7 +23,6 @@ async def on_message(message):
             m = "おはようございます" + message.author.name + "さん！"
             # メッセージが送られてきたチャンネルへメッセージを送ります
             await message.channel.send(m)
-
 
 
 bot.run(token)
